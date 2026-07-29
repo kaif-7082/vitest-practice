@@ -1,9 +1,9 @@
 name: CI Pipeline
 
 on:
-  push:
-    branches: [main]
   pull_request:
+    branches: [main]
+  push:
     branches: [main]
 
 jobs:
@@ -21,7 +21,7 @@ jobs:
   deploy:
     name: Deploy (simulated)
     needs: test
-    if: success()
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
     runs-on: ubuntu-latest
     steps:
       - run: echo "✅ Tests passed — deploying now..."

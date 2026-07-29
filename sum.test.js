@@ -1,4 +1,3 @@
-// sum.test.js
 import { describe, it, expect } from 'vitest'
 import { sum } from './sum.js'
 
@@ -9,5 +8,9 @@ describe('sum', () => {
 
   it('handles negative numbers', () => {
     expect(sum(-1, -1)).toBe(-2)
+  })
+
+  it('handles zero', () => {
+    expect(sum(0, 5)).toBe(5)
   })
 })
